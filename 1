@@ -1,0 +1,42 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+    Random rand = new Random();
+    int[] a = new int[10000];
+    int i, N, K, L, sum;
+    Console.Write("Введите число N: ");
+    N = int.Parse(Console.ReadLine());
+    Console.Write("Введите число K: ");
+    K = int.Parse(Console.ReadLine());
+    Console.Write("Введите число L: ");
+    L = int.Parse(Console.ReadLine());
+    if (L<K)
+    {
+      sum = L;
+      L = K;
+      K = sum;
+    }
+    for(i=K; i<=L; i++)
+    {
+      a[i]=rand.Next(100);
+      Console.Write("a[");
+      Console.Write(i);
+      Console.Write("] = ");
+      Console.Write(a[i]);
+      Console.Write(", ");
+    }
+    sum = 0;
+    Console.WriteLine();
+    Console.WriteLine();
+    for (i=K; i<=L; i++)
+    {
+      sum = sum + a[i];
+    }
+    sum = sum/(L-K+1);
+    Console.Write("Среднее арифметическое элементов K-L равно: ");
+    Console.WriteLine(sum);
+    Console.ReadKey();
+  }
+}
