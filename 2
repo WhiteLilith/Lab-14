@@ -1,0 +1,45 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+    
+    double[] a = new double[10000];
+    int i, N, L;
+    double K;
+    Console.Write("Введите число N: ");
+    N = int.Parse(Console.ReadLine());
+    for(i=1; i<=N; i++)
+    {
+      Console.Write("a[");
+      Console.Write(i);
+      Console.Write("]=");
+      a[i]=double.Parse(Console.ReadLine());
+    }
+    K = 0;
+    L = 1;
+    for (i=3; i<=N; i++)
+    {
+      if ((a[i-2]+a[i])/2 == a[i-1])
+      {
+        K = 1;
+      }
+      else
+      {
+        L = 0;
+      }
+    }
+    if (K == 1 && L == 1)
+    {
+      Console.WriteLine("Элементы данного массива образуют арифметическую прогрессию.");
+      K = a[2]-a[1];
+      Console.Write("Разность этой арифметической прогрессии равна: ");
+      Console.WriteLine(K);
+    }
+    else
+    {
+      Console.WriteLine("Элементы данного массива не образуют арифметическую последовательность.");
+    }
+    Console.ReadKey();
+  }
+}
