@@ -1,0 +1,31 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+
+    int[] a = new int[10000];
+    int i, N, n;
+    Console.Write("Введите число N: ");
+    N = int.Parse(Console.ReadLine());
+    n = 0;
+    for(i=1; i<=N; i++)
+    {
+      Console.Write("a[");
+      Console.Write(i);
+      Console.Write("]=");
+      a[i]=int.Parse(Console.ReadLine());
+    }
+    for(i=1; i<=N; i++)
+    {
+      if (a[i]>a[i-1] && a[i]>a[i+1])
+      {
+          n = i;
+      }
+    }
+    Console.Write("Наибольший номер локального максимума: ");
+    Console.Write(n);
+    Console.WriteLine(".");
+    Console.ReadKey();
+  }
+}
